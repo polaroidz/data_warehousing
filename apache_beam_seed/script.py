@@ -43,17 +43,6 @@ def run_local():
     import job
     job.run(config, job_args, argv, True)
 
-"""
-'--runner=DataflowRunner',
-'--project=beaming-glyph-245815',
-'--staging_location=gs://diego-misc2/hello/staging',
-'--temp_location=gs://diego-misc2/hello/temp',
-'--region=us-central-1',
-'--job_name=hello',
-'--setup_file=setup.py',
-'--requirements_file=requirements.txt'
-"""
-
 def run_gcp():
     gcp_path = _config("gcp_bucket")
     
