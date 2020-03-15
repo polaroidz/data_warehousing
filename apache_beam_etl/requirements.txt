@@ -1,0 +1,3 @@
+pysql_beam
+pymysql[rsa]
+psycopg2-binary

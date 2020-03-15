@@ -1,0 +1,10 @@
+{
+    "job_name": "job-name",
+    "description": "Base seed for apache beam projects",
+    "version": "0.0.1",
+    "author": "Diego Rodrigues, diego.mrodrigues11@gmail.com",
+    "language": "python",
+    "gcp_project": "your-gcp-project-name",
+    "gcp_region": "your-gcp-region",
+    "gcp_bucket": "gs://some/gs/path"
+}

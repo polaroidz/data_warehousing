@@ -31,7 +31,7 @@ with open(JOB_CONFIG_FILEPATH, "r") as f:
 
 def _config(key):
     if not key in config:
-        print("Please, add the {} on the job.json file before continue".format(key))
+        raise Exception("Please, add the {} on the job.json file before continue".format(key))
     return config[key]
 
 def run_local():
@@ -41,7 +41,8 @@ def run_local():
     job_args.append("--job_name=" + _config("job_name"))
 
     import job
-    job.run(config, job_args, argv, True)
+    #job.run(config, job_args, argv, True)
+    print("Aeeeeeeehhh")
 
 def run_gcp():
     gcp_path = _config("gcp_bucket")
@@ -55,15 +56,21 @@ def run_gcp():
     job_args.append("--temp_location=" + "{}/temp".format(gcp_path))
     job_args.append("--staging_location=" + "{}/staging".format(gcp_path))
     job_args.append("--setup_file=./setup.py")
-    
+
     import job
     job.run(config, job_args, argv, True)
 
 def run_spark():
     pass
 
+def config_airflow():
+    pass
+
 if __name__ == '__main__':
     logging.getLogger().setLevel(logging.INFO)
+
+    if _config("airflow"):
+        config_airflow()
 
     if args.runner == "gcp":
         run_gcp()
